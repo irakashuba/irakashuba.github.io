@@ -1,0 +1,22 @@
+body{
+	margin: 0px;
+	background-color: #E0F7FA;
+}
+
+.container {
+	width: 1000px;
+	height: 500px;
+	background-color: red;
+	position: relative;
+}
+
+.content-block {
+	height: 60%;
+	width: 100%;
+	bottom: 0px;
+	background-color: #64DD17;
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	box-shadow: 0 -1px 7px rgba(0,0,0,0.8);
+}
