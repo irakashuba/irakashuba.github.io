@@ -3,14 +3,31 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>B-day gift card</title>
   <link rel="stylesheet" href="./Styles/style.css" type="text/css"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body>
 <div class="content-block">
-  <div>Happy Birthday, Bro!</div>
+  <div id="textId" class="text">HAPPY BIRTHDAY, BRO!</div>
 </div>
 <!--<div class="container">
   <div class="content-block">
     <div>Happy Birthday, Bro!</div>
   </div>
 </div>-->
+<script type="text/javascript">
+	var container = document.getElementById("textId");
+	var array = container.innerHTML.split("");
+	var colors = ["#E91E63", "#3F51B5", "#CDDC39","#42A5F5", "#FF5722", "#795548", "#7CB342"];
+	var text = "";
+	var counter = 0;
+
+	for (var i = 0; i < array.length; i++, counter++)
+	{
+		if (counter == colors.length)
+			counter = 0;
+		text += "<span style=\"text-shadow: 0px 2px 3px " + colors[counter] + "\">" + array[i] + "</span>";
+	}
+
+	container.innerHTML = text;
+</script>
 </body>
