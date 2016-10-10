@@ -4,14 +4,7 @@ body{
 	font-family: 'Roboto', sans-serif;
 }
 
-.container {
-	width: 1000px;
-	height: 500px;
-	background-color: red;
-	position: relative;
-}
-
-.content-block {
+#text-container {
 	height: 60%;
 	width: 100%;
 	bottom: 0px;
@@ -19,7 +12,7 @@ body{
 	margin: 0px;
 	padding: 0px;
 	position: absolute;
-	box-shadow: 0 -1px 7px rgba(0,0,0,0.8);
+	box-shadow: 0 -1px 7px #565656;
 }
 
 .text {
@@ -31,4 +24,15 @@ body{
 	-webkit-background-clip: text;
      -moz-background-clip: text;
           background-clip: text;
+}
+
+#balloon-container {
+	position: relative;
+}
+
+.svg-balloon {
+	fill: red;
+	width: 82px;
+	height: 82px;
+	position: absolute;
 }
