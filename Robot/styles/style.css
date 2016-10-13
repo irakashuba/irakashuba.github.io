@@ -12,19 +12,29 @@ body{
 	margin:-150px 0 0 -150px;
 }
 .eyes {
-	width:  50px;
-	height: 50px;
+	width:  235px;
+	height: 60px;
 	position: absolute;
-	top: 15px;
-	left: 15px;
+	top: 20px;
+	left: 30px;
 }
 
 .left-eye { 
 	width:  50px;
 	height: 100%;
     background-color: #76FF03;
-    position: relative;
+    position: absolute;
  }
+
+ .right-eye { 
+	width:  50px;
+	height: 100%;
+    background-color: #76FF03;
+    position: absolute;
+    right: 0px;
+
+}
+
 .iris {
 	width: 20px;
 	height: 20px;
@@ -33,9 +43,4 @@ body{
 	background-color: green;
 	position: absolute;
 }
- .right-eye { 
-	width:  50px;
-	height: 100%;
-    background-color: red;
-    position: relative;
-}
+ 
