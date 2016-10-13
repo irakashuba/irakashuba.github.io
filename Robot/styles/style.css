@@ -5,7 +5,7 @@ body{
 .head {
 	width:  300px;
 	height: 300px;
-	background-color: #E91E63;
+	background-color: #FF7043;
 	position:absolute;
 	left:50%;
 	top:50%;
@@ -13,26 +13,23 @@ body{
 }
 .eyes {
 	width:  235px;
-	height: 60px;
+	height: 80px;
 	position: absolute;
-	top: 20px;
+	top: 50px;
 	left: 30px;
+
 }
 
-.left-eye { 
-	width:  50px;
+.left-eye, .right-eye { 
+	width:  80px;
 	height: 100%;
-    background-color: #76FF03;
+    background-color: #FFFF00;
     position: absolute;
- }
+    border-radius: 8px;
+}
 
- .right-eye { 
-	width:  50px;
-	height: 100%;
-    background-color: #76FF03;
-    position: absolute;
+.right-eye {
     right: 0px;
-
 }
 
 .iris {
@@ -40,7 +37,41 @@ body{
 	height: 20px;
 	left: 0px;
 	top: 0px;
-	background-color: green;
+	background-color: #558B2F;
 	position: absolute;
+	margin: 29px 0 0 29px;
+	border-radius: 50px;
 }
- 
+
+.mouth {
+	width: 220px;
+	height: 60px;
+	background-color: white;
+	margin: auto;
+	margin-top: 180px;
+	border: 15px solid #D7CCC8;
+ }
+
+ .antena {
+ 	width:  30px;
+	height: 119px;
+	background-color: #FFCC80;
+	position: absolute;
+	left: 52%;
+	top: 32%;
+	margin:-150px 0 0 -150px;
+ }
+
+ .antena:before {
+ 	content: "\0020";
+ 	float: left;
+ 	width:  57px;
+	height: 57px;
+	color: #E65100;
+    background: #E65100;  
+    position: relative;  
+    bottom: 50px;
+    right: 15px;
+    border-radius: 50px;
+ 	
+ }
