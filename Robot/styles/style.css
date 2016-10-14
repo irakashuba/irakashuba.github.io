@@ -38,8 +38,6 @@ body{
 .iris {
 	width: 20px;
 	height: 20px;
-	left: 0px;
-	top: 0px;
 	background-color: green;
 	position: absolute;
 }
