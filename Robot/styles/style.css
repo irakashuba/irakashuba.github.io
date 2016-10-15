@@ -11,6 +11,11 @@ body{
 	top:50%;
 	margin:-150px 0 0 -150px;
 }
+
+.head:hover {
+ 	background-color: #FF3D00;
+ }
+
 .eyes {
 	width:  235px;
 	height: 80px;
