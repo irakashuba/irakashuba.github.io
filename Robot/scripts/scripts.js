@@ -1,4 +1,5 @@
-addEventListener("mousemove", trackMouse, false);
+addEventListener("mousemove", trackMouse);
+addEventListener("touchmove", trackTouch);
 
 function trackMouse(event)
 {
@@ -6,11 +7,29 @@ function trackMouse(event)
     var leftEye = leftIris.parentElement;
     var width = (leftEye.parentElement.offsetWidth - leftEye.offsetWidth) / 2;
     
-    moveIris(document.getElementById('left-iris'), width);
-    moveIris(document.getElementById('right-iris'), width);
+    moveIris(event, leftIris, width);
+    moveIris(event, document.getElementById('right-iris'), width);
 }
 
-function moveIris(iris, width)
+function trackTouch(event)
+{
+    var leftIris = document.getElementById('left-iris');
+    var leftEye = leftIris.parentElement;
+    var width = (leftEye.parentElement.offsetWidth - leftEye.offsetWidth) / 2;
+
+    switch (event.touches.length)
+    {
+        case 1:
+            moveIris(event.touches[0], leftIris, width);
+            moveIris(event.touches[0], document.getElementById('right-iris'), width);
+            break;
+        default:
+            moveIris(event.touches[0], leftIris, width);
+            moveIris(event.touches[1], document.getElementById('right-iris'), width);
+    }
+}
+
+function moveIris(obj, iris, width)
 {
     var eyeArea = iris.parentElement.getBoundingClientRect();
     var irisArea = iris.getBoundingClientRect();
@@ -23,17 +42,17 @@ function moveIris(iris, width)
     
     var multiplier = (width + width) / (eyeArea.width - irisArea.width);
 
-    if (event.pageX <= center.x - width)
+    if (obj.pageX <= center.x - width)
         iris.style.left = "0px";
-    else if (event.pageX >= center.x + width)
+    else if (obj.pageX >= center.x + width)
         iris.style.left = (eyeArea.width - irisArea.width) + "px";
     else
-        iris.style.left = Math.floor((event.pageX - (center.x - width)) / multiplier) + "px";
+        iris.style.left = Math.floor((obj.pageX - (center.x - width)) / multiplier) + "px";
 
-    if (event.pageY <= center.y - height)
+    if (obj.pageY <= center.y - height)
         iris.style.top = "0px";
-    else if (event.pageY >= center.y + height)
+    else if (obj.pageY >= center.y + height)
         iris.style.top = (eyeArea.height - irisArea.height) + "px";
     else
-        iris.style.top = Math.floor((event.pageY - (center.y - height)) / multiplier) + "px";
+        iris.style.top = Math.floor((obj.pageY - (center.y - height)) / multiplier) + "px";
 }
