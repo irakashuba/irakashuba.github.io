@@ -1,15 +1,27 @@
-body{
+body {
 	background-color: #CDDC39;
+}
+
+.robot {
+	position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .head {
 	width:  300px;
 	height: 300px;
 	background-color: #607D8B;
-	position:absolute;
-	left:50%;
-	top:50%;
-	margin:-150px 0 0 -150px;
+	position: relative;
+}
+
+.head > * {
+    width:  80%;
+	position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 .head:hover {
@@ -17,12 +29,8 @@ body{
  }
 
 .eyes {
-	width:  235px;
 	height: 80px;
-	position: absolute;
 	top: 50px;
-	left: 30px;
-
 }
 
 .left-eye, .right-eye { 
@@ -48,22 +56,18 @@ body{
 }
 
 .mouth {
-	width: 220px;
-	height: 60px;
+    height: 60px;
 	background-color: white;
-	margin: auto;
-	margin-top: 180px;
-	border: 15px solid #D7CCC8;
- }
+    bottom: 15px;
+    border: 15px solid #D7CCC8;
+}
 
  .antena {
  	width:  30px;
 	height: 119px;
 	background-color: #78909C;
-	position: absolute;
-	left: 52%;
-	top: 32%;
-	margin:-150px 0 0 -150px;
+    position: relative;
+    left: 30px;
  }
 
  .antena:before {
