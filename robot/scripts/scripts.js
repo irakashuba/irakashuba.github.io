@@ -5,8 +5,7 @@
     var leftIris = document.getElementById('left-iris');
     var leftEye = leftIris.parentElement;
     var width = (leftEye.parentElement.offsetWidth - leftEye.offsetWidth) / 2;
-    var tapped = false;
-
+    
     function trackMouse(event) {
         moveIris(event, leftIris, width);
         moveIris(event, document.getElementById('right-iris'), width);
@@ -22,6 +21,7 @@
                 moveIris(event.touches[0], leftIris, width);
                 moveIris(event.touches[1], document.getElementById('right-iris'), width);
         }
+        event.preventDefault();
     }
 
     function moveIris(obj, iris, width) {
