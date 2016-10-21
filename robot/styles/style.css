@@ -9,7 +9,21 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.head {
+#robot .triggered {
+    -webkit-animation: going-red 2s, getting-triggered 0.1s infinite alternate;
+    -moz-animation: going-red 2s, getting-triggered 0.1s infinite alternate;
+    -o-animation: going-red 2s, getting-triggered 0.1s infinite alternate;
+    animation: going-red 2s, getting-triggered 0.1s infinite alternate;
+}
+
+#robot .relaxed{
+    -webkit-animation: going-back 2s;
+    -moz-animation: going-back 2s;
+    -o-animation: going-back 2s;
+    animation: going-back 2s;
+}
+
+#robot .head {
 	width:  300px;
 	height: 300px;
 	background-color: #607D8B;
@@ -23,10 +37,6 @@ body {
     right: 0;
     margin: auto;
 }
-
-.head:hover {
- 	background-color: #FF3D00;
- }
 
 .eyes {
 	height: 80px;
@@ -93,4 +103,93 @@ body {
 	width:  20%;
 	height: 50%;
 	border: 2px solid black;
+}
+
+/*Animations
+  going-red animtation
+*/
+@-webkit-keyframes going-red {
+    from { background-color: #607D8B; }
+    to { background-color: #D50000; }
+}
+
+@-moz-keyframes going-red {
+    from { background-color: #607D8B; }
+    to { background-color: #D50000; }
+}
+
+@-o-keyframes going-red {
+    from { background-color: #607D8B; }
+    to { background-color: #D50000; }
+}
+
+@keyframes going-red {
+    from { background-color: #607D8B; }
+    to { background-color: #D50000; }
+}
+
+/*going-back animtation*/
+@-webkit-keyframes going-back {
+    from { background-color: #D50000; }
+    to { background-color: #607D8B; }
+}
+
+@-moz-keyframes going-back {
+    from { background-color: #D50000; }
+    to { background-color: #607D8B; }
+}
+
+@-o-keyframes going-back {
+    from { background-color: #D50000; }
+    to { background-color: #607D8B; }
+}
+
+@keyframes going-back {
+    from { background-color: #D50000; }
+    to { background-color: #607D8B; }
+}
+
+/*going-getting-triggered animtation*/
+@-webkit-keyframes getting-triggered {
+    from {
+        left: 49.5%;
+        transform: translateX(-50%);
+    }
+    to {
+        left: 50.5%;
+        transform: translateX(-50%);
+    }
+}
+
+@-moz-keyframes getting-triggered {
+    from {
+        left: 49.5%;
+        transform: translateX(-50%);
+    }
+    to {
+        left: 50.5%;
+        transform: translateX(-50%);
+    }
+}
+
+@-o-keyframes getting-triggered {
+    from {
+        left: 49.5%;
+        transform: translateX(-50%);
+    }
+    to {
+        left: 50.5%;
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes getting-triggered {
+    from {
+        left: 49.5%;
+        transform: translateX(-50%);
+    }
+    to {
+        left: 50.5%;
+        transform: translateX(-50%);
+    }
 }

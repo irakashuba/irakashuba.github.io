@@ -1,17 +1,70 @@
 (function () {
-    document.addEventListener("mousemove", trackMouse);
+    //adding listener and function for MouseMove event
+    document.addEventListener("mousemove", function (event) {
+        moveIris(event, leftIris, width);
+        moveIris(event, document.getElementById('right-iris'), width);
+    });
+    //adding listener to TouchMove event
     document.addEventListener("touchmove", trackTouch);
 
+    //declaring variables
+    var triggered = false;
+    var onEnterRobotClass = 'triggered', onLeaveRobotClass = 'relaxed', onEnterBgColor = "#D50000", onLeaveBgColor = "#607D8B";
     var leftIris = document.getElementById('left-iris');
     var leftEye = leftIris.parentElement;
     var width = (leftEye.parentElement.offsetWidth - leftEye.offsetWidth) / 2;
+    var head = document.getElementById('robot-head');
     
-    function trackMouse(event) {
-        moveIris(event, leftIris, width);
-        moveIris(event, document.getElementById('right-iris'), width);
+    //adding listener and function for MouseEnter event
+    head.addEventListener("mouseenter", function (event) {
+        changeRobotState(event.target, onLeaveRobotClass, onEnterRobotClass, onEnterBgColor);
+    });
+    
+    //adding listener and function for MouseLeave event
+    head.addEventListener("mouseleave", function (event) {
+        changeRobotState(event.target, onEnterRobotClass, onLeaveRobotClass, onLeaveBgColor);
+    });
+
+    addTeeth(document.getElementById('robot-mouth'), 2, 5);
+    //function for adding a teeth table
+    function addTeeth(obj, rows, columns) {
+        var teeth = "<table class=\"teeth\">";
+
+        for (var i = 0; i < rows; i++) {
+            teeth += "<tr>";
+            for (var j = 0; j < columns; j++)
+                teeth += "<td></td>";
+            teeth += "</tr>";
+        }
+
+        obj.innerHTML = teeth + "</table>";
     }
 
+    //function for tracking touches positions
     function trackTouch(event) {
+        var touched = false;
+        var clientRect = head.getBoundingClientRect();
+        
+        for (var i = 0; i < event.touches.length; i++)
+        {
+            if (isTouchInside(item, clientRect))
+            {
+                touched = true;
+                break;
+            }
+        }
+
+        if (touched && !triggered)
+        {
+            triggered = true;
+            changeRobotState(head, onLeaveRobotClass, onEnterRobotClass, onEnterBgColor);
+        }
+        else if (!touched && triggered)
+        {
+            triggered = false;
+            changeRobotState(head, onEnterRobotClass, onLeaveRobotClass, onEnterBgColor);
+        }
+
         switch (event.touches.length) {
             case 1:
                 moveIris(event.touches[0], leftIris, width);
@@ -24,6 +77,26 @@
         event.preventDefault();
     }
 
+    //functing for checking if touch is insinde of a ClientRect of an object
+    function isTouchInside(touch, clientRect)
+    {
+        if (touch.pageX < clientRect.left || touch.pageX > clientRect.right)
+            return false;
+        else if (touch.pageY < clientRect.top || touch.pageY > clientRect.bottom)
+            return false;
+
+        return true;
+    }
+
+    //function for changing the state of a robot
+    function changeRobotState(obj, oldClass, newClass, bgColor)
+    {
+        obj.classList.remove(oldClass);
+        obj.classList.add(newClass);
+        obj.style.backgroundColor = bgColor;
+    }
+
+    //function for moving irises
     function moveIris(obj, iris, width) {
         var eyeArea = iris.parentElement.getBoundingClientRect();
         var irisArea = iris.getBoundingClientRect();
