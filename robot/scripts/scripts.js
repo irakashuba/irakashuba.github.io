@@ -62,7 +62,7 @@
         else if (!touched && triggered)
         {
             triggered = false;
-            changeRobotState(head, onEnterRobotClass, onLeaveRobotClass, onEnterBgColor);
+            changeRobotState(head, onEnterRobotClass, onLeaveRobotClass, onLeaveBgColor);
         }
 
         switch (event.touches.length) {
