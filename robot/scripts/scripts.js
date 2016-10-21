@@ -47,7 +47,7 @@
         
         for (var i = 0; i < event.touches.length; i++)
         {
-            if (isTouchInside(item, clientRect))
+            if (isTouchInside(event.touches[i], clientRect))
             {
                 touched = true;
                 break;
